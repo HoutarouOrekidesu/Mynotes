@@ -159,3 +159,90 @@ signed main()
     cout << bfs(1) << "\n";
     return 0;
 }
+
+
+// multisource bfs https://www.codechef.com/SNCKPB17/problems/SNSOCIAL/
+
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 1e3+10;
+const int INF = 1e9+10;
+
+int n, m, val[N][N];
+int vis[N][N], level[N][N];
+
+bool isvalid(int x, int y) {
+	return x >= 0 && x < n && y >= 0 && y < m;
+}
+
+vector<pair<int,int>> movements = {
+	{0, 1}, {0, -1}, {1, 0}, {-1, 0},
+	{1, 1}, {1, -1}, {-1, 1}, {-1, -1}
+};
+
+int bfs() {
+	int mx = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			mx = max(mx, val[i][j]);
+		}
+	}
+	queue<pair<int,int>> q;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (mx == val[i][j]) {
+				q.push({i, j});
+				level[i][j] = 0;
+				vis[i][j] = 1;
+			}
+		}
+	}
+
+	int ans = 0;
+	while (!q.empty()) {
+		auto v = q.front();
+		int v_x = v.first;
+		int v_y = v.second;
+		q.pop();
+		for (auto movement : movements) {
+			int child_x = movement.first + v_x;
+			int child_y = movement.second + v_y;
+			if (!isvalid(child_x, child_y)) continue;
+			if (!vis[child_x][child_y]) continue;
+			q.push({child_x, child_y});
+			level[child_x][child_y] = level[v_x][v_y] + 1;
+			vis[child_x][child_y] = 1;
+			ans = max(ans, level[child_x][child_y]);
+		}
+	}
+	return ans;
+}
+
+void reset() {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			level[i][j] = INF;
+			vis[i][j] = 0;
+		}
+	}
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
+    	cin >> n >> m;
+    	reset();
+    	for (int i = 0; i < n; i++) {
+    		for (int j = 0; j < m; j++) {
+    			cin >> val[i][j];
+    		}
+    	}
+    	cout << bfs() << "\n";
+    }
+    return 0;
+}
