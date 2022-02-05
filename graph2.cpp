@@ -108,3 +108,54 @@ signed main()
 	return 0;
 }
 
+// 0-1 bfs
+
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 1e5+10;
+const int INF = 1e9+10;
+
+int n, m;
+vector<pair<int,int>> g[N];
+vector<int> level(N, INF);
+
+int bfs(int source) {
+	deque<int> q;
+	q.push_back(source);
+	level[source] = 0;
+
+	while (!q.empty()) {
+		int cur_v = q.front();
+		q.pop_front();
+		for (auto child : g[cur_v]) {
+			int child_v = child.first;
+			int wt = child.second;
+			if (level[cur_v] + wt < level[child_v]) {
+				level[child_v] = level[cur_v] + wt;
+				if (wt == 1) q.push_back(child_v);
+				else q.push_front(child_v);
+			}
+		}
+	}
+	return level[n] == INF? -1: level[n];
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+    freopen("C:/Users/DSC/Desktop/code sublime/inputf.in", "r", stdin);
+    #endif
+
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+    	int v1, v2;
+    	cin >> v1 >> v2;
+    	if (v1 == v2) continue;
+    	g[v1].push_back({v2, 0});
+    	g[v2].push_back({v1, 1});
+    }
+    cout << bfs(1) << "\n";
+    return 0;
+}
