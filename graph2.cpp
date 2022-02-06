@@ -291,4 +291,5 @@ void solve() {
 		g[y].push_back({x, wt});
 	}
 }
+//floyad 
 
