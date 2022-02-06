@@ -248,7 +248,7 @@ signed main()
 }
 
 
-//dijkstra algo
+//dijkstra algo O(V + Elog(V))
 
 const int N = 1e5+10;
 const int INF = 1e9+7;
