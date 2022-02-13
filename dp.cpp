@@ -81,3 +81,9 @@ https://leetcode.com/problems/coin-change/
 
 //coin change 2
 https://leetcode.com/problems/coin-change-2/
+
+//knapsack 1
+https://atcoder.jp/contests/dp/tasks/dp_d
+
+//rod cutting unbounded knapsack
+https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
