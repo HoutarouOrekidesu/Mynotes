@@ -87,3 +87,6 @@ https://atcoder.jp/contests/dp/tasks/dp_d
 
 //rod cutting unbounded knapsack
 https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
+
+//problems based on subsetsum
+https://leetcode.com/problems/partition-equal-subset-sum/
