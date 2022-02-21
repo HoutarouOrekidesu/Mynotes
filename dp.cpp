@@ -79,7 +79,10 @@ signed main()
 //coin change 1
 https://leetcode.com/problems/coin-change/
 
-//coin change 2
+//Dice combinations (here order matters , so we just use the normal recursion)
+https://cses.fi/problemset/task/1633
+
+//coin change 2 (here order doesn't matter, so we just need to go by index and state of dp becomes 2)
 https://leetcode.com/problems/coin-change-2/
 
 //knapsack 1
