@@ -45,6 +45,11 @@ https://atcoder.jp/contests/dp/submissions/29220505
 
 //frog 2
 https://atcoder.jp/contests/dp/tasks/dp_b
+// top down
+https://atcoder.jp/contests/dp/submissions/28426139
+//Bottom up
+https://atcoder.jp/contests/dp/submissions/28431413
+https://atcoder.jp/contests/dp/submissions/29220622
 
 //C- Vacation
 https://atcoder.jp/contests/dp/tasks/dp_c
