@@ -37,12 +37,21 @@ void solve() {
 
 //frog 1
 https://atcoder.jp/contests/dp/tasks/dp_a
+//top down 
+https://atcoder.jp/contests/dp/submissions/28425981
+//bottom up
+https://atcoder.jp/contests/dp/submissions/28431002
+https://atcoder.jp/contests/dp/submissions/29220505
 
 //frog 2
 https://atcoder.jp/contests/dp/tasks/dp_b
 
 //C- Vacation
 https://atcoder.jp/contests/dp/tasks/dp_c
+// top down
+https://atcoder.jp/contests/dp/submissions/29623396
+//Bottom up
+https://atcoder.jp/contests/dp/submissions/29623826
 
 //longest increasing subsequence 
 
@@ -61,8 +70,7 @@ int lis(int i) {
     return dp[i] = ans;
 }
 
-signed main()
-{
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
@@ -81,6 +89,8 @@ signed main()
 
 //coin change 1
 https://leetcode.com/problems/coin-change/
+//top down approach
+https://leetcode.com/submissions/detail/639674893/
 
 //Dice combinations (here order matters , so we just use the normal recursion)
 https://cses.fi/problemset/task/1633
