@@ -96,7 +96,10 @@ https://leetcode.com/submissions/detail/639674893/
 https://cses.fi/problemset/task/1633
 
 //coin change 2 (here order doesn't matter, so we just need to go by index and state of dp becomes 2)
+//top down
 https://leetcode.com/problems/coin-change-2/
+//bottom up
+https://leetcode.com/submissions/detail/648206011/
 
 //knapsack 1
 https://atcoder.jp/contests/dp/tasks/dp_d
