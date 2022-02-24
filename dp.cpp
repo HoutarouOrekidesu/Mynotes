@@ -41,6 +41,9 @@ https://atcoder.jp/contests/dp/tasks/dp_a
 //frog 2
 https://atcoder.jp/contests/dp/tasks/dp_b
 
+//C- Vacation
+https://atcoder.jp/contests/dp/tasks/dp_c
+
 //longest increasing subsequence 
 
 #include <bits/stdc++.h>
