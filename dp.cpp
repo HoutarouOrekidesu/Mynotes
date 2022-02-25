@@ -119,5 +119,9 @@ https://atcoder.jp/contests/dp/tasks/dp_d
 //rod cutting unbounded knapsack
 https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
 
-//problems based on subsetsum
+problems based on subsetsum
 https://leetcode.com/problems/partition-equal-subset-sum/
+top down approach
+https://leetcode.com/submissions/detail/640431214/
+bottom up approach
+https://leetcode.com/submissions/detail/648681941/
