@@ -115,6 +115,10 @@ https://leetcode.com/submissions/detail/648206011/
 =========================================================================================================================================================================
 //knapsack 1
 https://atcoder.jp/contests/dp/tasks/dp_d
+top down approach
+https://atcoder.jp/contests/dp/submissions/29245880
+bottom up approach
+https://atcoder.jp/contests/dp/submissions/29643951
 
 //rod cutting unbounded knapsack
 https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
