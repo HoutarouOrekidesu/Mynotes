@@ -1,20 +1,22 @@
 //basic structure of a dfs program.
 
+https://cp-algorithms.com/graph/depth-first-search.html
+
 void dfs(int vertex) {
-        //take action on vertex after entering the vertex
-        //here before and after means before and after executing the dfs
-        //section of going up
-        vis[vertex] = true;
-        for (int child : g[vertex]) {
-                //take action on child before entering the child
-                //section of going up
-                if (vis[child]) continue;
-                dfs(child);
-                //take action on child after exiting the child node
-                //section of going down
-       }
-       // take action on vertex before exiting the vertex
-       //section of going down
+  //take action on vertex after entering the vertex
+  //here before and after means before and after executing the dfs
+  //section of going up
+  vis[vertex] = true;
+  for (int child : g[vertex]) {
+    //take action on child before entering the child
+    //section of going up
+    if (vis[child]) continue;
+    dfs(child);
+    //take action on child after exiting the child node
+    //section of going down
+  }
+  // take action on vertex before exiting the vertex
+  //section of going down
 }
 
 void dfs(int v) {
@@ -34,32 +36,36 @@ vector<int> g[N];
 vector<bool> vis(N, false);
 
 void dfs(int vertex) {
-        vis[vertex] = true;
-        for (int child : g[vertex]) {
-                if (vis[child]) continue;
-                dfs(child);
-       }
+  vis[vertex] = true;
+  for (int child : g[vertex]) {
+    if (vis[child]) continue;
+    dfs(child);
+  }
 }
 
 signed main()
 {
-        std::ios_base::sync_with_stdio(NULL);
-        cin.tie(NULL); cout.tie(NULL);
-
-        int n,m;
-        cin >> n >> m;
-        for (int i = 0; i < m; ++i) {
-                int v1, v2; cin >> v1 >> v2;
-                g[v1].push_back(v2); g[v2].push_back(v1);
-        }
-        int cnt = 0;
-        for (int i = 1; i <= n; i++) {
-                if(vis[i]) continue;
-                dfs(i); cnt++;
-        }
-        cout << cnt << "\n";
-        return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  
+  int n,m;
+  cin >> n >> m;
+  for (int i = 0; i < m; ++i) {
+    int v1, v2; 
+    cin >> v1 >> v2;
+    g[v1].push_back(v2); 
+    g[v2].push_back(v1);
+  }
+  int cnt = 0;
+  for (int i = 1; i <= n; i++) {
+    if(vis[i]) continue;
+    dfs(i); 
+    cnt++;
+  }
+  cout << cnt << "\n";
+  return 0;
 }
+https://codeforces.com/contest/277/problem/A
 
 
 //storing connected components in a vector
