@@ -293,3 +293,49 @@ void solve() {
 }
 //floyad 
 
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e3+10, inf = 1e9+7;
+
+int dis[N][N];
+
+signed main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  #ifndef ONLINE_JUDGE
+  freopen("inputf.in", "r", stdin);
+  #endif
+
+  for (int i = 0; i < N; i++) {
+    for (int j = 0; j < N; j++) {
+      if (i == j) dis[i][j] = 0;
+      else dis[i][j] = inf;
+    }
+  }
+  int n, m;
+  cin >> n >> m;
+  for (int i = 0; i < m; i++) {
+    int x, y, w;
+    cin >> x >> y >> w;
+    dis[x][y] = w;
+  }
+  for (int k = 1; k <= n; k++) {
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= n; j++) {
+        if (dis[i][k] != inf && dis[k][j] != inf) {
+          dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
+        }
+      }
+    }
+  }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      if (dis[i][j] == inf) cout << "I";
+      else cout << dis[i][j];
+      cout << " ";  
+    }
+    cout << "\n";
+  }
+  return 0;
+}
