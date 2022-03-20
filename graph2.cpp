@@ -339,3 +339,53 @@ signed main() {
   }
   return 0;
 }
+
+
+//dsu
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int parent[N], size[N];
+
+void make(int v) {
+  parent[v] = v;
+  size[v] = 1;
+}
+
+void find(int v) {
+  if (parent[v] = v) return v;
+  return parent[v] = find(parent[v]);
+}
+
+void Union(int a, int b) {
+  a = find(a);
+  b = find(b);
+  if (a != b) {
+    if (size[a] < size[b]) swap(a, b);
+    parent[b] = a;
+    size[a] += size[b];
+  }
+}
+
+signed main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  
+  int n, k;
+  cin >> n >> k;
+  for (int i = 1; i <= n; i++) {
+    make(i);
+  }  
+  while (k--) {
+    int u, v;
+    cin >> u >> v;
+    Union(u, v);
+  }
+  int connected_cnt = 0;
+  for (int i = 1; i < n; i++) {
+    if (parent[v] == v) connected_cnt++;
+  }
+  cout << connected_cnt << "\n";
+  return 0;
+}
