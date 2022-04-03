@@ -1,20 +1,28 @@
 // state of dp are the parameters that changes during dp
 
-//bottom up approach
+//bottom up approach (iterative approach)
 
 int dp[100010];
 
+there are two type of bottom up dp
+1) Pull dp: answers are pulled from previous answers that are already calculated
+2) Push dp: here we are concerning that our current postion has what contribution to the other indices
+            f(i+1) += f(i); f(i+2) += f(i);
+State (what info we are storing/carring), 
+transisiton (way to find current answers from previous answers f(x) = f(x-1) + f(x-2)), 
+base cases
+
 void solve() {
-  int n;
-  cin >> n;
-  dp[1] = 1;
-  for (int i = 2; i <= n; i++) {
-    dp[i] = dp[i-1] + dp[i-2];
-  }
-  cout << dp[n];
+    int n;
+    cin >> n;
+    dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+    cout << dp[n];
 }
 
-//top down approach
+//top down approach (recursive)
 
 int dp[100010];
 
