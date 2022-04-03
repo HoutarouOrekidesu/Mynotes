@@ -104,24 +104,25 @@ top down
 
 #include <bits/stdc++.h>
 using namespace std;
-
-int dp[1001];
-
+#define int long long 
+ 
+int dp[1000010];
+ 
 int f(vector<int> &a, int i) {
-    if (i == 0) return a[0];
+    if (i == 0) return dp[0] = a[0];
     if (dp[i] != -1) return dp[i];
     int mx = a[i];
     mx = max(mx, a[i]+f(a, i-1));
     return dp[i] = mx;
 }
-
+ 
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     #endif
-
+ 
     int n;
     cin >> n;
     vector<int> a(n);
@@ -132,7 +133,6 @@ signed main() {
     f(a, n-1);
     int ans = -1e9;
     for (int i = 0; i < n; i++) {
-        cout << dp[i] << " \n"[i == n-1];
         ans = max(ans, dp[i]);
     }
     cout << ans << "\n";
