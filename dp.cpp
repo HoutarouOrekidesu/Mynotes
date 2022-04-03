@@ -72,6 +72,7 @@ bottom up
 
 #include <bits/stdc++.h>
 using namespace std;
+#define int long long 
 
 signed main() {
     ios::sync_with_stdio(false);
@@ -88,13 +89,12 @@ signed main() {
     }
     int b[n];
     b[0] = a[0];
-    int ans = -1e9;
+    int ans = -1*1e9;
     for (int i = 1; i < n; i++) {
         b[i] = max(a[i], a[i]+b[i-1]);
-        ans = max(ans, b[i]);
     }
     for (int i = 0; i < n; i++) {
-        cout << b[i] << " \n"[i == n-1];
+        ans = max(ans, b[i]);
     }
     cout << ans << "\n";
     return 0;
@@ -138,6 +138,7 @@ signed main() {
     cout << ans << "\n";
     return 0;
 }
+
 //longest increasing subsequence 
 
 #include <bits/stdc++.h>
