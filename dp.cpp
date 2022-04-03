@@ -66,6 +66,38 @@ https://atcoder.jp/contests/dp/submissions/29623396
 //Bottom up
 https://atcoder.jp/contests/dp/submissions/29623826
 
+Maximum subarray sum
+
+#include <bits/stdc++.h>
+using namespace std;
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    #endif
+
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    int b[n];
+    b[0] = a[0];
+    int ans = -1e9;
+    for (int i = 1; i < n; i++) {
+        b[i] = max(a[i], a[i]+b[i-1]);
+        ans = max(ans, b[i]);
+    }
+    for (int i = 0; i < n; i++) {
+        cout << b[i] << " \n"[i == n-1];
+    }
+    cout << ans << "\n";
+    return 0;
+}
+
 //longest increasing subsequence 
 
 #include <bits/stdc++.h>
