@@ -68,6 +68,8 @@ https://atcoder.jp/contests/dp/submissions/29623826
 
 Maximum subarray sum
 
+bottom up
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -98,6 +100,44 @@ signed main() {
     return 0;
 }
 
+top down
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[1001];
+
+int f(vector<int> &a, int i) {
+    if (i == 0) return a[0];
+    if (dp[i] != -1) return dp[i];
+    int mx = a[i];
+    mx = max(mx, a[i]+f(a, i-1));
+    return dp[i] = mx;
+}
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    #endif
+
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    memset(dp, -1, sizeof(dp));
+    f(a, n-1);
+    int ans = -1e9;
+    for (int i = 0; i < n; i++) {
+        cout << dp[i] << " \n"[i == n-1];
+        ans = max(ans, dp[i]);
+    }
+    cout << ans << "\n";
+    return 0;
+}
 //longest increasing subsequence 
 
 #include <bits/stdc++.h>
