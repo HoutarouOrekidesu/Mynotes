@@ -43,27 +43,27 @@ void solve() {
 
 
 
-//frog 1
+frog 1
 https://atcoder.jp/contests/dp/tasks/dp_a
-//top down 
+top down 
 https://atcoder.jp/contests/dp/submissions/28425981
-//bottom up
+bottom up
 https://atcoder.jp/contests/dp/submissions/28431002
 https://atcoder.jp/contests/dp/submissions/29220505
 
-//frog 2
+frog 2
 https://atcoder.jp/contests/dp/tasks/dp_b
-// top down
+top down
 https://atcoder.jp/contests/dp/submissions/28426139
-//Bottom up
+Bottom up
 https://atcoder.jp/contests/dp/submissions/28431413
 https://atcoder.jp/contests/dp/submissions/29220622
 
-//C- Vacation
+C- Vacation
 https://atcoder.jp/contests/dp/tasks/dp_c
-// top down
+top down
 https://atcoder.jp/contests/dp/submissions/29623396
-//Bottom up
+Bottom up
 https://atcoder.jp/contests/dp/submissions/29623826
 
 Maximum subarray sum
@@ -198,9 +198,10 @@ https://cses.fi/paste/e9eb7f073ddebb0d36db7d/
 
 case of combinations count
 //coin change 2 (here order doesn't matter, so we just need to go by index and state of dp becomes 2)
-//top down
 https://leetcode.com/problems/coin-change-2/
-//bottom up
+top down
+https://leetcode.com/submissions/detail/639769695/
+bottom up
 https://leetcode.com/submissions/detail/648206011/
 
 =========================================================================================================================================================================
