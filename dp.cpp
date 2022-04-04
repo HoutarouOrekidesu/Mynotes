@@ -192,9 +192,9 @@ case of permutations count
 //Dice combinations (here order matters , so we just use the normal recursion)
 https://cses.fi/problemset/task/1633
 top down 
-https://cses.fi/problemset/result/3578394/
+https://cses.fi/paste/5d3e0bbc951062d1369a1a/
 bottom up
-https://cses.fi/problemset/result/3595133/
+https://cses.fi/paste/e9eb7f073ddebb0d36db7d/
 
 case of combinations count
 //coin change 2 (here order doesn't matter, so we just need to go by index and state of dp becomes 2)
