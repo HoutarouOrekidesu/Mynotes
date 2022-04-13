@@ -221,3 +221,10 @@ top down approach
 https://leetcode.com/submissions/detail/640431214/
 bottom up approach
 https://leetcode.com/submissions/detail/648681941/
+
+==========================================================================================================================
+
+Longest common subsequence 
+https://leetcode.com/problems/longest-common-subsequence/
+top down approach
+https://leetcode.com/submissions/detail/679612921/
