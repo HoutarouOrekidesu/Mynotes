@@ -228,3 +228,5 @@ Longest common subsequence
 https://leetcode.com/problems/longest-common-subsequence/
 top down approach
 https://leetcode.com/submissions/detail/679612921/
+bottom up
+https://leetcode.com/submissions/detail/679731353/
