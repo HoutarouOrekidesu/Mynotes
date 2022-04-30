@@ -343,6 +343,27 @@ signed main() {
 
 //dsu
 
+
+void make (int v) {
+    par[v] = v;
+    size[v] = 1;
+}
+
+int find (int v) {
+    if (pa[v] == v) return v;
+    return par[v] = find(par[v]);
+}
+
+void Union (int a, int b) {
+    a = find(a);
+    b = find(b);
+    if (a != b) {
+        if (size[a] < size[b]) swap(a, b);
+        par[b] = a;
+        size[a] += size[b];
+    }
+}
+
 #include <bits/stdc++.h>
 using namespace std;
 
