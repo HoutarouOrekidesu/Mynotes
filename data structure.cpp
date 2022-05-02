@@ -24,3 +24,25 @@ https://cses.fi/paste/20f26b201eae8e073b575d/
 
 //recursive change function
 https://cses.fi/paste/b3ee1b29eeb579313b64de/
+
+
+// Update and find in one (not best in terms of time complexity, using separate function is recommended)
+
+int f(int node, int node_low, int node_high, int query_low, int query_high, int v) {
+    if (query_low <= node_low && node_high <= query_high) {
+        if (v != -1) tree[node] = v;
+        return tree[node];
+    }
+    if (node_high < query_low || query_high < node_low) {
+        return 0;
+    }
+ 
+    int last_in_first = (node_high + node_low)/2;
+ 
+    int sum = f(2*node, node_low, last_in_first, query_low, query_high, v) + 
+    f(2*node + 1, last_in_first + 1, node_high, query_low, query_high, v);
+ 
+    tree[node] = tree[2*node] + tree[2*node + 1];
+ 
+    return sum;
+}
