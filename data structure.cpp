@@ -54,7 +54,7 @@ int par[N], sz[N];
 
 void make (int v) {
     par[v] = v;
-    size[v] = 1;
+    sz[v] = 1;
 }
 
 int find (int v) {
@@ -66,9 +66,9 @@ void Union (int a, int b) {
     a = find(a);
     b = find(b);
     if (a != b) {
-        if (size[a] < size[b]) swap(a, b);
+        if (sz[a] < sz[b]) swap(a, b);
         par[b] = a;
-        size[a] += size[b];
+        sz[a] += sz[b];
     }
 }
 
