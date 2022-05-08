@@ -46,3 +46,40 @@ int f(int node, int node_low, int node_high, int query_low, int query_high, int 
  
     return sum;
 }
+
+//dsu
+const int N = 
+
+int par[N], sz[N];
+
+void make (int v) {
+    par[v] = v;
+    size[v] = 1;
+}
+
+int find (int v) {
+    if (par[v] == v) return v;
+    return par[v] = find(par[v]);
+}
+
+void Union (int a, int b) {
+    a = find(a);
+    b = find(b);
+    if (a != b) {
+        if (size[a] < size[b]) swap(a, b);
+        par[b] = a;
+        size[a] += size[b];
+    }
+}
+
+// Checker function
+
+bool Union (int a, int b) {
+    a = find(a);
+    b = find(b);
+    if (a == b) return false;
+    if (sz[a] < sz[b]) swap(a, b);
+    par[b] = a;
+    sz[a] += sz[b];
+    return true;
+}
