@@ -230,3 +230,51 @@ top down approach
 https://leetcode.com/submissions/detail/679612921/
 bottom up
 https://leetcode.com/submissions/detail/679731353/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  string a, b;
+  cin >> a >> b;
+  a = '1' + a;
+  b = '1' + b;
+  int n = a.size() - 1, m = b.size() - 1;
+  vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= m; j++) {
+      if (a[i] == b[j]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      }
+      else {
+        dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+  }
+  int idx = dp[n][m];
+  vector<char> lcs(idx + 1);
+  int i = n, j = m;
+  while (i > 0 && j > 0) {
+    if (a[i] == b[j]) {
+      lcs[idx] = a[i];
+      idx--;
+      i--;
+      j--;
+    }
+    else if (dp[i - 1][j] > dp[i][j - 1]) {
+      i--;
+    }
+    else {
+      j--;
+    }
+  }
+  for (int i = 1; i <= dp[n][m]; i++) {
+    cout << lcs[i];
+  }
+  cout << "\n";
+  return 0;
+}
+
