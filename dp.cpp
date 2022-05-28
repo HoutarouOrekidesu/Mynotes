@@ -171,6 +171,90 @@ https://leetcode.com/submissions/detail/639769695/
 bottom up
 https://leetcode.com/submissions/detail/648206011/
 
+==========================================================================================================================================================
+Maximum subarray sum
+
+bottom up
+
+Kadane's algorithm 
+    
+int best = 0, sum = 0;
+for (int k = 0; k < n; k++) {
+    sum = max(array[k],sum+array[k]);
+    best = max(best,sum);
+}
+cout << best << "\n";
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long 
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    #endif
+
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    int b[n];
+    b[0] = a[0];
+    int ans = -1*1e9;
+    for (int i = 1; i < n; i++) {
+        b[i] = max(a[i], a[i]+b[i-1]);
+    }
+    for (int i = 0; i < n; i++) {
+        ans = max(ans, b[i]);
+    }
+    cout << ans << "\n";
+    return 0;
+}
+
+top down
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long 
+ 
+int dp[1000010];
+ 
+int f(vector<int> &a, int i) {
+    if (i == 0) return dp[0] = a[0];
+    if (dp[i] != -1) return dp[i];
+    int mx = a[i];
+    mx = max(mx, a[i]+f(a, i-1));
+    return dp[i] = mx;
+}
+ 
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    #endif
+ 
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    memset(dp, -1, sizeof(dp));
+    f(a, n-1);
+    int ans = -1e9;
+    for (int i = 0; i < n; i++) {
+        ans = max(ans, dp[i]);
+    }
+    cout << ans << "\n";
+    return 0;
+}
+
 =========================================================================================================================================================================
 //knapsack 1
 https://atcoder.jp/contests/dp/tasks/dp_d
