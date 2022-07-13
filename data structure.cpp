@@ -83,3 +83,17 @@ bool Union (int a, int b) {
     sz[a] += sz[b];
     return true;
 }
+
+vector<int> fen(n + 1);
+auto add = [&] (int i, int x) {
+  for (; i <= n; i += i & -i) {
+    fen[i] += x;
+  }
+};
+auto sum = [&] (int i) {
+  int ans = 0;
+  for (; i > 0; i -= i & -i) {
+    ans += fen[i];
+  }
+  return ans;
+};
