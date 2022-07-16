@@ -97,3 +97,28 @@ auto sum = [&] (int i) {
   }
   return ans;
 };
+
+
+
+    vector<int> par(n + 1, 0), sz(n + 1, 0);
+    function<void(int)> make = [&] (int v) {
+      par[v] = v;
+      sz[v] = 1;
+    };
+    function<int(int)> find = [&] (int v) {
+      if (par[v] == v) {
+        return v;
+      }
+      return par[v] = find(par[v]);
+    };
+    function<void(int,int)> Union = [&] (int a, int b) {
+      a = find(a);
+      b = find(b);
+      if (a != b) {
+        if (sz[a] < sz[b]) {
+          swap(a, b);
+        }
+        par[b] = a;
+        sz[a] += sz[b];
+      }
+    };
