@@ -17,3 +17,8 @@ auto powmod = [&] (long long a, long long b) {
 auto binom = [&] (int x, int y) {
   return fac[x] * powmod(fac[y] * fac[x-y], mod - 2) % mod;
 };
+
+
+// Important problem related to how to do problems concerned with binomail roots
+
+https://codeforces.com/contest/1569/problem/C
