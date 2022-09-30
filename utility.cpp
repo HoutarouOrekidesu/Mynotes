@@ -23,7 +23,8 @@ auto powmod = [&] (long long a, long long b) {
   }
   return res;
 };
-
-
+auto binom = [&] (int x, int y) {
+  return fac[x] * powmod(fac[x-y], mod - 2) % mod;
+};
 
 
