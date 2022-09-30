@@ -27,4 +27,9 @@ auto binom = [&] (int x, int y) {
   return fac[x] * powmod(fac[x-y], mod - 2) % mod;
 };
 
+int ncr[66][66];
+for(int i = 0; i <= 60; i++) ncr[i][0] = 1;
+  for(int i = 1; i <= 60; i++) {
+    for(int j = 1; j <= i; j++) ncr[i][j] = (ncr[i - 1][j] + ncr[i - 1][j - 1]) % MOD;
+}
 
