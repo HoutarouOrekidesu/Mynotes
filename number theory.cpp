@@ -37,20 +37,27 @@ int gcd (int a, int b) {
 	return gcd(b, a % b);
 }
 
-//recursive binary exponentation.
+gcd can be used to calculate the minimum fraction
+lcm can be calculated using gcd
+
+a / gcd(a, b) 
+_____________ = min fraction
+b / gcd(a, b)
+
+//recursive binary exponentation. log(n)
 int binexprec(int a, int b) { 
 	if (b == 0) return 1;
-	long long int ans = binexprec(a, b/2);
-	if (b & 1) return (a*((ans*ans)%M)) % M;
-	else return (ans*ans) % M;
+	long long ans = binexprec(a, b/2);
+	if (b & 1) return (a * ((ans * ans) % M)) % M; // add long long or add 1ll in ans * ans as ans * ans may be > 1e9
+	else return (ans * ans) % M;
 }
 
-//iterative binary exponentation
-int binexpitr(int a, int b) {
+//iterative binary exponentation                            1          0         0         1         0
+int binexpitr(int a, int b) { 3 ^ 18 --> 3 ^ (10010) --> (3 ^ 16) * (3 ^ 8) * (3 ^ 4) * (3 * 2) * (3 ^ 1)
 	int ans = 1;
-	while (b != 0) {
-		if (b & 1) ans = (ans*1ll*a) % M;
-		a = (a*1ll*a) % M;
+	while (b) {
+		if (b & 1) ans = (ans * 1ll * a) % M;
+		a = (a * 1ll * a) % M;
 		b >>= 1;
 	}
 	return ans;
