@@ -31,9 +31,10 @@ int c1  = (a & (~((1 << (i+1))-1)));
 //unset ith bit from left
 int c2 = (a & ((1 << (i+1))-1));
 
-int gcd(int a, int b) { // gcd of two numbers 
-	if (a == 0) return b;
-	return gcd(b%a, a);
+int gcd (int a, int b) {
+	if (b == 0) return a; // extra one recursive call will be added where remainder is 0 and dividend is divisor of previous divison
+	if (a % b == 0) return b; // if a is divisible by b then b is gcd
+	return gcd(b, a % b);
 }
 
 //recursive binary exponentation.
