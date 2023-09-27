@@ -11,7 +11,7 @@ void bfs(int x) {
     int v = q.front();
     q.pop();
     for (int u : g[v]) {
-      if (!l[u]) {
+      if (!vis[u]) {
         q.push(u);
         vis[u] = 1;
         l[u] = l[v] + 1;
@@ -50,28 +50,52 @@ build(b, 1, 0, z - 1);
 getMax(1, 0, z - 1, i, j);
 
 // dsu  
-  
-vector<int> par(n + 1, 0), sz(n + 1, 0);
-function<void(int)> make = [&] (int v) {
-  par[v] = v;
-  sz[v] = 1;
+wmod = [&] (long long a, long long b) {
+    long long res = 1;
+    a %= mod;
+    for(; b; b >>= 1) {
+        if (b & 1) {
+            res = (res * a) % mod;
+        }
+         a = (a * a) % mod;
+     }
+     return res;
 };
-function<int(int)> find = [&] (int v) {
-  if (par[v] == v) {
-    return v;
-  }
-  return par[v] = find(par[v]);
+auto binom = [&] (int x, int y) {
+    return fac[x] * powmod(fac[x - y], mod - 2) % mod;
 };
-function<void(int,int)> Union = [&] (int a, int b) {
-  a = find(a);
-  b = find(b);
-  if (a != b) {
-    if (sz[a] < sz[b]) {
-      swap(a, b);
+ 
+ 
+// DSU
+ 
+struct DSU {
+    vector<int> s, p;
+    DSU() {}
+    DSU(int n) {
+        init(n);
     }
-    par[b] = a;
-    sz[a] += sz[b];
-  }
+    void init(int n) {
+        p.resize(n);
+        iota(p.begin(), p.end(), 0);
+        s.assign(n, 1);
+    }
+    int find(int v) {
+        if (p[v] == v) return v;
+        return p[v] = find(p[v]);
+    }
+    bool same(int a, int b) {
+        return find(a) == find(b);
+    }
+    void merge(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a == b) return;
+        if (s[a] < s[b]) {
+            swap(a, b);
+        }
+        p[b] = a;
+        s[a] += s[b];
+    }
 };
   
 // nCr
