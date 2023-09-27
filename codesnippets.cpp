@@ -1,7 +1,30 @@
+// merge segments
+vector<pair<int,int>> a(n);
+for (int i = 0; i < n; i++) {
+    cin >> a[i].first;
+}
+for (int i = 0; i < n; i++) {
+    cin >> a[i].second;
+}
+sort(a.begin(), a.end());
+vector<pair<int,int>> p;
+int l = a[0].first, r = a[0].second;
+for (auto [f, s]: a) {
+    if (f >= l && f <= r) r = max(r, s);
+    else {
+        p.push_back({l, r});
+        l = f, r = s;
+    }
+}
+p.push_back({l, r});
+
+
+// level order traversal bfs
 const int N = 2e5 + 10;
 
 vector<int> g[N];
 int vis[N];
+vector<int> l(n);
 
 void bfs(int x) {
   queue<int> q;
