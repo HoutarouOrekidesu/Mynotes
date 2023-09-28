@@ -1,3 +1,21 @@
+Binary search 
+In this, we shift our mid to ceil of (l + r) instead of the floor. This allows us to remove the necessity of checking r separately as it will be checked automatically when 
+l + 1 = r as (l + r + 1) >> 1 = r instead of l. In this way, our required answer would be updated. We can reach to single value instead of two consecutive values of l and r. 
+    It is useful when we are dealing with evaluating the last true.
+e.g :- TTTTTTTTTTTTTTFFFFFFFFFFFFF
+
+int l = 1, r = n;
+while (r > l) {
+	int m = (l + r + 1) / 2;
+	if (f(m)) {
+		l = m;
+	} 
+	else {
+		r = m - 1;
+	}
+}
+cout << l << "\n";
+
 // merge segments
 vector<pair<int,int>> a(n);
 for (int i = 0; i < n; i++) {
