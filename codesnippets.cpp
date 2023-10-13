@@ -124,11 +124,7 @@ for(int i = 1; i <= 60; i++) {
  
 struct DSU {
     vector<int> s, p;
-    DSU() {}
     DSU(int n) {
-        init(n);
-    }
-    void init(int n) {
         p.resize(n);
         iota(p.begin(), p.end(), 0);
         s.assign(n, 1);
@@ -149,6 +145,39 @@ struct DSU {
         }
         p[b] = a;
         s[a] += s[b];
+    }
+};
+// DSU coordinate system
+struct DSU {
+    vector<vector<pair<int,int>>> p;
+    vector<vector<int>> s;
+    DSU(int n, int m) {
+        p.resize(n);
+        s.resize(n);
+        for (int i = 0; i < n; i++) {
+            p[i].resize(m);
+            s[i].resize(m);
+        }
+    }
+    void make(int x, int y) {
+        p[x][y] = {x, y};
+    }
+    pair<int,int> find(pair<int,int> v) {
+        if (p[v.first][v.second] == v) return v;
+        return p[v.first][v.second] = find(p[v.first][v.second]);
+    }
+    bool same(pair<int,int> a, pair<int,int> b) {
+        return find(a) == find(b);
+    }
+    void merge(pair<int,int> a, pair<int,int> b) {
+        a = find(a);
+        b = find(b);
+        if (a == b) return;
+        if (s[a.first][a.second] < s[b.first][b.second]) {
+            swap(a, b);
+        }
+        p[b.first][b.second] = a;
+        s[a.first][a.second] += s[b.first][b.second];
     }
 };
 
