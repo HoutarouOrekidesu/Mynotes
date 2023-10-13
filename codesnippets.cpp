@@ -159,8 +159,8 @@ struct DSU {
             s[i].resize(m);
         }
     }
-    void make(int x, int y) {
-        p[x][y] = {x, y};
+    void make(pair<int,int> nd) {
+        p[x][y] = nd;
     }
     pair<int,int> find(pair<int,int> v) {
         if (p[v.first][v.second] == v) return v;
