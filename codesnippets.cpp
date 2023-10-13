@@ -160,7 +160,8 @@ struct DSU {
         }
     }
     void make(pair<int,int> nd) {
-        p[x][y] = nd;
+        p[nd.first][nd.second] = nd;
+        s[nd.first][nd.second] = 1;
     }
     pair<int,int> find(pair<int,int> v) {
         if (p[v.first][v.second] == v) return v;
@@ -175,9 +176,13 @@ struct DSU {
         if (a == b) return;
         if (s[a.first][a.second] < s[b.first][b.second]) {
             swap(a, b);
-        }
+        }  
         p[b.first][b.second] = a;
         s[a.first][a.second] += s[b.first][b.second];
+    }
+    int rsz(pair<int,int> x) {
+        x = find(x);
+        return s[x.first][x.second];
     }
 };
 
