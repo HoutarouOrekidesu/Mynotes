@@ -16,6 +16,15 @@ while (r > l) {
 }
 cout << l << "\n";
 
+
+for FFFFFFFFFFFFFFFFFFTTTTTTTTTTTT
+while (r > l) {
+	int m = (l + r) / 2;
+	if (f(m)) r = m;
+	else l = m + 1;
+} 
+cout << l << endl;
+
 // merge segments
 vector<pair<int,int>> a(n);
 for (int i = 0; i < n; i++) {
