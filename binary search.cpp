@@ -1,4 +1,7 @@
-// binary search is a search algorithm that applies on a monotonic fucntions
+// binary search is a search algorithm that applies on a monotonic functions
+
+increase speed of youtube video
+$('video').playbackRate=2.2 
 
 //upper bound and lower bound implementations
 
